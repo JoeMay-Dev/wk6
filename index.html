@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +9,51 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Weather Dashboard</title>
 </head>
-    <h1>Weather Dashboard</h1>
+<h1>Weather Dashboard</h1>
 
-    <div class="container">
-
-        <div class="row justify-content-center">
-        <div class="col-4">
-            <div class="input-group">
-                <textarea id="search" class="form-control" placeholder="Enter City"></textarea>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-info bg-info text-light" type="button" id="button6">Search</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-8">
-            <h2>City</h2>
-            <div>Temp</div>
-            <div>Humidity</div>
-            <div>Wind Speed</div>
-            <div>UV Index</div>
-        </div>
-        </div>
 
 
 <body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="script.js"></script>   
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="input-group">
+                    <textarea id="search" class="form-control" placeholder="Enter City"></textarea>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary bg-primary text-white" type="button"
+                            id="searchButton">Search</button>
+                    </div>
+                    <div class="card-body" id="prev-search"></div>
+                </div>
+            </div>
+            <div class="col">
+                <div id="current-search">
+                    <h3>City</h3>
+                    <div>Temp</div>
+                    <div>Humidity</div>
+                    <div>Wind Speed</div>
+                    <div>UV Index</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <br>
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <strong></strong>
+                    </div>
+
+
+                    <div class="card-body" id="article-section">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
 </body>
+
 </html>
