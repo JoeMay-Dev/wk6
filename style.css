@@ -1,0 +1,12 @@
+.lowUV{
+    color: white;
+    background-color: green;
+}
+.moderateUV{
+    /* color: white; */
+    background-color: yellow;
+}
+.highUV{
+    color: white;
+    background-color: red;
+}
