@@ -10,3 +10,9 @@
     color: white;
     background-color: red;
 }
+li{
+    list-style-type: none;
+}
+li:hover {
+    font-size: large;
+}
