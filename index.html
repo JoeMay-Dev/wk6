@@ -22,13 +22,13 @@
                     <textarea id="search" method="POST" class="form-control" placeholder="Enter City"></textarea>
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary bg-primary text-white" type="button"
-                            id="searchButton">Search</button>
+                            id="searchButton"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="current-search">
-                    <h3><span id="city"></span></h3>
+                    <h3><span id="city">City: </span></h3>
                     <div>Temp: <span id="temp"></span></div>
                     <div>Humidity: <span id="humidity"></span></div>
                     <div>Wind Speed: <span id="windspeed"></span></div>
@@ -36,20 +36,24 @@
                 </div>
             </div>
         </div>
-        <div>
-            <p>Previous Searches</p>
-            <ul id="prev-search"></ul>
+        <div class="row">
+            <div class="col">
+                <p class = "ps-header bg-secondary text-white">Previous Searches</p>
+                <ul id="prev-search"></ul>
+            </div>
+            <div class="col">
+            </div>
         </div>
         <div class="row">
             <div class="col">
                 <br>
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-secondary text-white">
                         <strong>Five Day Forecast:</strong>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="card-deck">
+                            <div class="card-group">
                                 <div class="card">
                                     <div class="card-body" id="day1"></div>
                                 </div>
@@ -79,6 +83,7 @@
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                         <script src="script.js"></script>
+                        <script src="https://kit.fontawesome.com/9950c80bed.js" crossorigin="anonymous"></script>
                     </div>
                 </div>
             </div>

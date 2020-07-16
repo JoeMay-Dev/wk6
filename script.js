@@ -9,14 +9,13 @@ prevSearchList.addEventListener("click", function (event) {
     if (element.innerHTML !== null) {
         const prevCity = element.innerHTML;
         const index = element.getAttribute("data-index");
-        console.log(index);
+        // console.log(index);
         prevSearchArr.splice(index, 1);
         storePrev();
         renderPrevSearch();
         weatherSearch(prevCity);
     }
     // console.log(prevSearchArr);
-
 });
 function init() {
     const storedPrevSearch = JSON.parse(localStorage.getItem("prevSearchArr"));
@@ -25,7 +24,6 @@ function init() {
     }
     renderPrevSearch();
 }
-
 function renderPrevSearch() {
     prevSearchList.innerHTML = "";
     for (let i = 0; i < prevSearchArr.length; i++) {
@@ -43,13 +41,10 @@ function weatherSearch(city) {
     // console.log(city);
     const queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
     // console.log(prevSearchArr);
-
-
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (nowResult) {
-
         const cityName = (nowResult.name);
         const cityTemp = (nowResult.main.temp);
         const cityHumidity = (nowResult.main.humidity);
@@ -60,19 +55,18 @@ function weatherSearch(city) {
         const uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + cityLat + "&lon=" + cityLon;
         const fiveDayQueryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?id=" + cityID + "&cnt=6&units=imperial&appid=" + APIKey;
 
-        $('#city').text(cityName + " " + day);
-        $('#temp').text(cityTemp + " °F");
-        $('#humidity').text(cityHumidity + "%");
-        $('#windspeed').text(cityWindspeed + " knots");
+        $("#city").text(cityName + " " + day);
+        $("#temp").text(cityTemp + " °F");
+        $("#humidity").text(cityHumidity + "%");
+        $("#windspeed").text(cityWindspeed + " knots");
 
         $.ajax({
             url: uvQueryURL,
             method: "GET"
         }).then(function (uvResult) {
-
             const cityUV = (uvResult.value)
-            $('#UV').text(cityUV);
-
+            $("#UV").text(cityUV);
+            $("#UV").removeClass();
             if (cityUV <= 2) {
                 $("#UV").addClass("lowUV");
             } else if (cityUV > 2 && cityUV <= 5) {
@@ -80,9 +74,7 @@ function weatherSearch(city) {
             } else {
                 $("#UV").addClass("highUV");
             }
-
         })
-
         $.ajax({
             url: fiveDayQueryURL,
             method: "GET"
@@ -94,7 +86,7 @@ function weatherSearch(city) {
                 $("#day" + [i]).empty();
                 const nextDiv = $("<div>");
                 const nextDate = $("<h4>");
-                const newDay = moment().add([i], 'days').format("MM/D/YY");
+                const newDay = moment().add([i], "days").format("MM/D/YY");
                 const maxTemp = $("<p>");
                 maxTemp.text("High: " + fiveDay[i].temp.max + " °F");
                 const minTemp = $("<p>");
@@ -107,7 +99,6 @@ function weatherSearch(city) {
                 $("#day" + [i]).prepend(nextDiv);
             }
         });
-
     });
 };
 $("button").on("click", function (e) {
@@ -120,4 +111,6 @@ $("button").on("click", function (e) {
     storePrev();
     renderPrevSearch();
     weatherSearch(citySearch);
+    const resetSearch = document.getElementById("search")
+    resetSearch.value ="";
 });

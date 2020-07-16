@@ -1,9 +1,13 @@
+.ps-header{
+    font-weight: bold;
+    text-align: center;
+    border-style: solid;
+}
 .lowUV{
     color: white;
     background-color: green;
 }
 .moderateUV{
-    /* color: white; */
     background-color: yellow;
 }
 .highUV{
@@ -12,7 +16,10 @@
 }
 li{
     list-style-type: none;
+    border-style: outset;
+    outline-color:  darkgrey;
 }
 li:hover {
-    font-size: large;
+    background-color: lightgray;
+    cursor: pointer;
 }
